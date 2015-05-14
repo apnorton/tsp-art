@@ -29,7 +29,11 @@ I use the method of [Weighted Voronoi Stippling](http://mrl.nyu.edu/~ajsecord/np
 Approximation
 -------------
 
+The next step in the process is to approximate a solution to the Travelling Salesman Problem.  Obviously, the better your approximation, the better your end result will be.  I originally was going to use Simulated Annealing, but that resulted in some pretty awful results with even just a few stipple points.  At this point, I was running out of time to work on this project, and so settled on the Nearest Neighbor heuristic.
 
+To use this heuristic, you choose a starting point at random and build a path by repeatedly selecting the nearest stipple point to the current path endpoint.  The simplest approach (which I used) takes Ɵ(n^2) time (from each endpoint, examine all other unchosen points).
+
+A better (and faster) heuristic is to use a preorder traversal of a minimum spanning tree.  This would only take Ɵ(n lg n) time and is relatively simple to write; I am not entirely sure why I didn't use this approach instead.  It can be shown that this MST approach will return a path that is, in the worst-case, twice as long the optimal TSP solution.
 
 Intersection Correction
 -----------------------
