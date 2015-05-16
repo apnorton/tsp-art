@@ -37,3 +37,7 @@ A better (and faster) heuristic is to use a preorder traversal of a minimum span
 
 Intersection Correction
 -----------------------
+
+The above approximation step should produce a good result, but we'd really like to eliminate any self-intersections in the proposed solution curve.  It is rather trivial to see that an exact TSP solution will never intersect, and removing intersections by reconnecting the four points associated with two intersecting segments will always shorten the proposed path.
+
+To really describe my approach for intersection removal, I'll need to create some graphics and trace out my algorithm.  However, the general idea is to perform a Ɵ(n^2) scan for intersecting segments, then replace each pair with two segments that do not intersect yet maintain path connectivity.  This is made simpler by treating each segment as a directed segment and "following" the segments around the curve.
