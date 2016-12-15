@@ -6,7 +6,7 @@ import random
 import sys
 import itertools
 import VoronoiDiagram
-from cleanup import correct
+from CleanUp import correct
 import NN
 from Seg import Seg
 
